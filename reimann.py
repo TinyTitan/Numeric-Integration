@@ -10,7 +10,7 @@ def main():
     xEnd = 2.0 * 3.1415
 
     # Number of total samples
-    numRectangles = 10
+    numRectangles = 100
 
     # Rectangle width
     width = (xEnd-xStart) / numRectangles

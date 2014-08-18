@@ -11,15 +11,16 @@ For these functions, we have to integrate them numerically -- that is, we have t
 
 Most calculus courses cover "Riemann Integration", or the process of drawing infinitely many, infinitely small rectangles under the curve of a function in order to calculate its area. However, if we just want a good approximation, we only need finitely many rectangles -- perhaps only a few thousand or less. This type of Riemann Integration is perfect for a computer, because we can let it do the hard work of dividing up the interval into rectangles and summing their areas.
 
-This tutorial is split into three parts:
+This tutorial is split into four parts:
 
+1. `riemann-no-loops.py`
 1. `riemann.py`
 1. `riemann-parallel.py`
 1. `riemann-parallel-plotting.py`
 
 ### Part 1
 
-In the `riemann.py` file, we go over how to approximate the definite integral of the `Sine` function over the interval `[0, 2 * Pi]`. We begin by splitting the interval into 10 rectangles, and the width of each rectangle is `2 * Pi / 10`. We calculate the height of each rectangle by finding the value of the `Sine` function at the left hand side of where we want the rectangle to be.
+In the `riemann-no-loops.py` file, we go over how to approximate the definite integral of the `Sine` function over the interval `[0, 2 * Pi]`. We begin by splitting the interval into 4 rectangles, and the width of each rectangle is `2 * Pi / 4`. We calculate the height of each rectangle by finding the value of the `Sine` function at the left hand side of where we want the rectangle to be.
 
 This will not be a perfect estimate, because the tops of the rectangles will be flat while the real `Sine` function continues to curve, but eventually we will make the rectangles so small that the difference between the rectangles and the actual curve is almost zero.
 
@@ -30,9 +31,30 @@ Once we have all of our rectangles set up, we can calculate each of their areas 
 1. Numerically integrate the `Cosine` function over the same interval
 1. Numerically integrate the `Cosine` function over the interval [1,2] -- does this match what you would expect from Calculus?
 1. Numerically integrate `e^-2x` over the interval [1,2]
+1. Change the number of rectangles from four to five
 1. __Bonus__ Add an option that allows you to describe the interval boundaries on the command line
 
 ### Part 2
+
+Now that you get the hang of the Riemann integral, the next question is "How can we make it use more (and smaller) rectangles". Using smaller rectangles will give us a more accurate approximation, but the way our previous program was written makes it a lot of trouble to add new rectangles.
+
+Fortunately, we can use "loops" to make the computer do the same thing over and over again as many times as we like. So if we want fifty rectangles, we have the computer run the rectangle code fifty times -- but using a different value for `x` each time.
+
+Try the following on the Python command line:
+
+```python
+for i in range(1,10):
+    print i
+```
+
+It will print each of the numbers 1 through 10 in your terminal window.
+
+#### Challenges
+
+1. Numerically integrate the `Cosine` function over the same interval
+1. Numerically integrate the `Cosine` function over the interval [1,2] -- does this match what you would expect from Calculus?
+
+### Part 3
 
 In the `riemann-parallel.py` file, we discuss how to _parallelize_ this problem -- that means, how to use more than one computer to solve it. This will give us a better approximation to the area under the curve. In this case, if we have access to 4 computers, we can calculate 4x as many rectangles, allowing us to have a much more accurate answer.
 
