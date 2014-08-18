@@ -21,7 +21,7 @@ def main():
     for i in range(0,numRectangles - 1):
 	    x = i * width
 	    y = func(x)
-	    area_of_each_rectangle.append(x * y)
+	    area_of_each_rectangle.append(width * y)
 
     # Calculate the "Total" area
     total_area = 0.0
