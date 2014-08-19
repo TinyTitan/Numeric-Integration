@@ -18,18 +18,15 @@ def main():
     # Empty list of Rectangle areas
     area_of_each_rectangle = []
 
+    # Calculate the "Total" area
+    total_area_under_curve = 0.0
     for i in range(0,numRectangles - 1):
 	    x = i * width
-	    y = func(x)
-	    area_of_each_rectangle.append(width * y)
-
-    # Calculate the "Total" area
-    total_area = 0.0
-
-    for i in range(0,numRectangles - 1):
-	    total_area += area_of_each_rectangle[i]
+	    rectangle_height = func(x)
+	    rectangle_area = width * rectangle_height
+	    total_area_under_curve += rectangle_area
 
     # Output the total area
-    print total_area
+    print total_area_under_curve
 
 main()

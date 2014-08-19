@@ -28,11 +28,9 @@ Once we have all of our rectangles set up, we can calculate each of their areas 
 
 #### Challenges
 
-1. Numerically integrate the `Cosine` function over the same interval
-1. Numerically integrate the `Cosine` function over the interval [1,2] -- does this match what you would expect from Calculus?
-1. Numerically integrate `e^-2x` over the interval [1,2]
+1. Integrate the function `x^2` over the interval [2,3]
+1. Change the function being integrated from `x^2` to `x^3 + x`
 1. Change the number of rectangles from four to five
-1. __Bonus__ Add an option that allows you to describe the interval boundaries on the command line
 
 ### Part 2
 
@@ -47,12 +45,24 @@ for i in range(1,10):
     print i
 ```
 
-It will print each of the numbers 1 through 10 in your terminal window.
+It will print each of the numbers 1 through 10 in your terminal window. Even though it executes the same code every time, the value of `i` changes (it goes up by 1 each time). This allows us to get different effects out of the same code.
+
+As we loop over the rectangle code, it will also help tally up the areas of the individual rectangles into one big sum as we go. Python lets us do this pretty easily with the `+=` operator. For example,
+
+```python
+total = 0
+for i in range(1,4)
+    total += i
+    print total
+```
+
+will print the numbers 1,3,6,10. The file `riemann-loops.py` shows how we can use loops to calculate areas with 100 rectangles or more.
 
 #### Challenges
 
 1. Numerically integrate the `Cosine` function over the same interval
 1. Numerically integrate the `Cosine` function over the interval [1,2] -- does this match what you would expect from Calculus?
+1. __Bonus__ Add an option that allows you to describe the interval boundaries on the command line
 
 ### Part 3
 
